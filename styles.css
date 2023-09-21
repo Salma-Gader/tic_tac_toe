@@ -1,0 +1,99 @@
+body {
+    background-image: url(images/cool-geometric-triangular-figure-neon-laser-light-great-backgrounds.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+}
+
+h1 {
+    font-size: 48px;
+    font-weight: bold;
+    color: white;
+    margin-top: 10rem;
+    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column;
+}
+
+.title-container {
+    display: flex;
+    justify-content: center;
+}
+
+.box {
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Transparent background color (adjust alpha as needed) */
+    color: white;
+    /* Text color inside the box */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* Optional: Box shadow for a nice effect */
+    width: 50%;
+    max-width: 80%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    /* Optional: Maximum width for the box */
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 10px;
+}
+
+.input-box {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 50px;
+    height: 60px;
+}
+
+label {
+    margin-bottom: 5px;
+    width: 12rem;
+    font-size: 20px;
+}
+
+input {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: medium;
+    border-radius: 20px;
+}
+
+.play-botton {
+    color: #fff;
+    text-decoration: none;
+    padding: 20px 60px;
+    letter-spacing: 2px;
+    border: 3px solid #3c67e3;
+    border-radius: 10px;
+    margin-left: 11rem;
+    font-size: 20px;
+}
+
+.play-botton:hover {
+    animation: pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 25px #5ddcff, 0 0 50px #4e00c2;
+    }
+}
