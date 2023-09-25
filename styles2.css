@@ -1,0 +1,81 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url(images/abstract-uv-ultraviolet-light-composition.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    color: white;
+}
+
+.container {
+    text-align: center;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(20, 30px);
+    grid-template-rows: repeat(20, 30px);
+    margin-bottom: 10px;
+    color: white;
+}
+
+.cell {
+    width: 25px;
+    height: 25px;
+    font-size: 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #faf7f7;
+    cursor: pointer;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.player-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+    border: 3px solid #3c67e3;
+    box-shadow: 0 0 10px #3c67e3;
+    /* Box shadow properties */
+    border-radius: 10px;
+    padding: 2rem;
+}
+
+.player-box:hover {
+    animation: pulse 1.4s ease-in-out infinite;
+}
+
+.player-box.left {
+    align-self: center;
+    margin-right: 20px;
+    margin-left: auto;
+}
+
+.player-box.right {
+    align-self: center;
+    margin-left: 20px;
+    margin-right: auto;
+}
+
+.player-box label {
+    margin-bottom: 5px;
+}
