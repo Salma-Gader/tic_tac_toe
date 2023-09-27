@@ -22,6 +22,14 @@ function makeMove(row, col) {
         document.getElementById(`${row}_${col}`).innerText = currentPlayer;
 
         if (checkWin()) {
+            if (currentPlayer === 'X') {
+                playerData.players[0].score++; // Increment Player 1's score
+            } else {
+                playerData.players[1].score++; // Increment Player 2's score
+            }
+
+            // Update the playerData in localStorage with the updated score
+            localStorage.setItem('playerData', JSON.stringify(playerData));
             document.getElementById('status').innerText = `${currentPlayer} wins!`;
             disableBoard();
         } else if (board.every(row => row.every(cell => cell !== ''))) {
@@ -107,19 +115,75 @@ for (let i = 0; i < rows; i++) {
 }
 
 function storePlayerName() {
-    const name1 = document.getElementById('first_player').value;
-    const name2 = document.getElementById('second_player').value;
+    const inputValue = playerNameInput.value;
+    if (inputValue.trim() !== '' && !/^\d+$/.test(inputValue)) {
+        localStorage.clear();
+        const name1 = document.getElementById('first_player').value;
+        const name2 = document.getElementById('second_player').value;
 
-    // Store the name in localStorage
-    localStorage.setItem('first_player', name1);
-    localStorage.setItem('second_player', name2);
+        const playerData = {
+            players: [{
+                    name: name1,
+                    score: 0
+                },
+                {
+                    name: name2,
+                    score: 0
+                }
+            ]
+        };
 
-    // Redirect to the other page
-    window.location.href = 'table.html';
+        localStorage.setItem('playerData', JSON.stringify(playerData));
+
+        window.location.href = 'table.html';
+    }
 }
 
 
-const secondPlayerName = localStorage.getItem('second_player');
+function displayPlayerNames() {
 
-const secondPlayerNameElement = document.getElementById('secondPlayerName');
-secondPlayerNameElement.textContent = `Second Player: ${secondPlayerName}`;
+    const playerDataJSON = localStorage.getItem('playerData');
+    if (playerDataJSON) {
+        const playerData = JSON.parse(playerDataJSON);
+
+        const firstPlayerName = playerData.players[0].name;
+        const secondPlayerName = playerData.players[1].name;
+
+        const firstPlayerNameElement = document.getElementById('firstPlayerName');
+        firstPlayerNameElement.textContent = `${firstPlayerName}`;
+
+        const secondPlayerNameElement = document.getElementById('secondPlayerName');
+        secondPlayerNameElement.textContent = `${secondPlayerName}`;
+    } else {
+        console.log('No player data found.');
+    }
+}
+
+displayPlayerNames();
+const playerDataJSON = localStorage.getItem('playerData');
+const playerData = JSON.parse(playerDataJSON);
+const firstPlayerscore = playerData.players[0].score;
+// console.log(firstPlayerscore)
+
+
+const playerNameInput = document.getElementById('first_player');
+const resetButton = document.getElementById('resetButton');
+
+// playerNameInput.addEventListener('input', function(event) {
+//     const inputValue = event.target.value;
+
+//     if (inputValue.trim() === '' || /^\d+$/.test(inputValue)) {
+//         event.target.value = '';
+//         resetButton.disabled = true;
+//     } else {
+//         resetButton.disabled = false;
+//     }
+// });
+const payerDataJSON = localStorage.getItem('playerData');
+
+const payerData = JSON.parse(payerDataJSON);
+
+const firstPlayerName = playerData.players[0].name;
+const secondPlayerName = playerData.players[1].name;
+localStorage.removeItem(payerData);
+console.log(firstPlayerName)
